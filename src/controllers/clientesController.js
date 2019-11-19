@@ -18,6 +18,7 @@ exports.getClientes = (req, res, next) => {
 exports.getCompradores = (req, res, next) => {
     Model.find({"comprou": true}, (err, compradores) => {
         if (err) return res.status(500).send(err);
+        return res.status(200).send(compradores);
     });
 };
 exports.getClientePorCpf = (req, res, next) => {
