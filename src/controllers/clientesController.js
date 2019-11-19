@@ -22,5 +22,8 @@ exports.getCompradores = (req, res, next) => {
     });
 };
 exports.getClientePorCpf = (req, res, next) => {
-
+    Model.find({"cpf": req.cpf}, (err, cliente) => {
+        if (err) return res.status(500).send(err);
+        return res.status(200).send(cliente);
+    });
 };

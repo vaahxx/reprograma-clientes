@@ -9,8 +9,8 @@ router.use('/:cpf', (req, res, next) => {
 
 router.post('/', controller.postClientes);
 router.get('/', controller.getClientes);
-// router.get('/compradores', controller.getCompradores);
-// router.get('/:cpf', controller.getClientePorCpf);
+router.get('/compradores', controller.getCompradores);
+router.get('/:cpf', controller.getClientePorCpf);
 
 module.exports = router;
 
