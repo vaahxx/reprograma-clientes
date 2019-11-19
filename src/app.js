@@ -20,12 +20,11 @@ db.once('open', () => {
 });
 
 // middlewares
-app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.json());
 
 // rotas
-const clientes = require('./routes/clientes.js');
-app.use('/', clientes);
+const clientes = require('./routes/clientesRoute');
+app.use('/clientes', clientes);
 
 module.exports = app;
