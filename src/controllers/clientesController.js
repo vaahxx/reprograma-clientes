@@ -4,7 +4,10 @@ exports.postClientes = (req, res, next) => {
     const cliente = new Model(req.body);
     cliente.save((err) => {
         if (err) return res.status(500).send(err);
-        return res.status(201).send(cliente);
+        return res.status(201).send({
+            status: true,
+            mensagem: 'cliente incluido com sucesso'
+        });
     });
 };
 
@@ -18,6 +21,7 @@ exports.getClientes = (req, res, next) => {
 exports.getCompradores = (req, res, next) => {
     Model.find({"comprou": true}, (err, compradores) => {
         if (err) return res.status(500).send(err);
+        console.log(compradores);
         return res.status(200).send(compradores);
     });
 };
