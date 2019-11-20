@@ -21,8 +21,13 @@ exports.getClientes = (req, res, next) => {
 exports.getCompradores = (req, res, next) => {
     Model.find({"comprou": true}, (err, compradores) => {
         if (err) return res.status(500).send(err);
-        console.log(compradores);
-        return res.status(200).send(compradores);
+        const clientesCompradores = compradores.map((e) => {
+            return {
+                nome: e.nome,
+                email: e.email
+            }
+        });
+        return res.status(200).send(clientesCompradores);
     });
 };
 exports.getClientePorCpf = (req, res, next) => {
