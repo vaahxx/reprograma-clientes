@@ -11,6 +11,8 @@ router.post('/', controller.postClientes);
 router.get('/', controller.getClientes);
 router.get('/compradores', controller.getCompradores);
 router.get('/:cpf', controller.getClientePorCpf);
+router.put('/:cpf', controller.updateCliente);
+// router.delete('/:cpf', controller.deleteCliente);
 
 module.exports = router;
 

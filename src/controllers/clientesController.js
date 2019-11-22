@@ -36,3 +36,16 @@ exports.getClientePorCpf = (req, res, next) => {
         return res.status(200).send(cliente);
     });
 };
+exports.updateCliente = (req, res, next) => {
+    Model.update(
+        { cpf: req.params.cpf },
+        { $set: req.body },
+        { upsert: true },
+        (err) => {
+            if (err) return res.status(500).send(err);
+        });    
+        res.status(200).send({ mensagem: "Atualizado com sucesso!" });
+};
+exports.deleteCliente = (req, res, next) => {
+    Model.remove();
+};
